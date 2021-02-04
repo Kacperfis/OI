@@ -71,7 +71,7 @@ int main(int argc, char* argv[])
 	
 	int m = p.length();
 	
-	int KMPNext[m];
+	int KMPNext[m+1];
 	int b;
 	
 	KMPNext[0] = -1;
