@@ -68,25 +68,25 @@ long long mpow2(long long x, long long y, long long mod) {
     }
     return ret % mod;
 }
-int isPrime(long long p) { // implements by miller-babin
-    if (p < 2 || !(p&1))	return 0;
-    if (p == 2)				return 1;
+bool isPrime(long long p) { // implements by miller-babin
+    if (p == 2)                return true;
+    if (p < 2  !(p&1))    return false;
     long long q = p-1, a, t;
     int k = 0, b = 0;
-    while (!(q&1))	q >>= 1, k++;
+    while (!(q&1))    q >>= 1, k++;
     for (int it = 0; it < 2; it++) {
         a = rand()%(p-4) + 2;
         t = mpow2(a, q, p);
-        b = (t == 1) || (t == p-1);
+        b = (t == 1)  (t == p-1);
         for (int i = 1; i < k && !b; i++) {
             t = mul(t, t, p);
             if (t == p-1)
                 b = 1;
         }
         if (b == 0)
-            return 0;
+            return false;
     }
-    return 1;
+    return true;
 }
 long long pollard_rho(long long n, long long c) {
     long long x = 2, y = 2, i = 1, k = 2, d;
