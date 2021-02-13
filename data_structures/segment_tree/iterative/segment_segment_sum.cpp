@@ -116,6 +116,7 @@ int main()
 			LL a, b, v;
 			cin >> a >> b >> v;
 			insert(a, b, v);
+		}
 		else if(x == 2){ //query sum on interval [a; b]
 			LL a, b; cin >> a >> b;
 			cout << query(a, b) << '\n';
